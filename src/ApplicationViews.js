@@ -1,6 +1,7 @@
-import { Route, Redirect } from "react-router-dom";
-import React, { useRef, useState, useEffect } from "react";
+import { Route } from "react-router-dom";
+import React from "react";
 import { withRouter } from "react-router-dom";
+import RunList from "./Runs/runlist";
 
 const ApplicationViews = () => {
   return (
@@ -10,9 +11,9 @@ const ApplicationViews = () => {
           exact
           path="/"
           render={props => {
-            return <>
-            <p>Kadence</p>
-            </>;
+            return( <>
+            <RunList  {...props}/>
+            </> )
           }}
         />
       }
