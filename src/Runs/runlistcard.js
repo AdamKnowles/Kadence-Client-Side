@@ -6,10 +6,10 @@ const RunListCard = props => {
 
     return (
         <div>
-            <p>{props.run.time}</p>
-            <p>{props.run.date}</p>
-            <p>{props.run.distance}</p>
-            <p>{props.run.duration}</p>
+            <p>Time: {props.run.time}</p>
+            <p>Date: {props.run.date}</p>
+            <p>Distance: {props.run.distance}</p>
+            <p>Run Duration: {props.run.duration}</p>
         </div>
     )
 }
