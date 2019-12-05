@@ -42,7 +42,7 @@ const RunForm = props => {
 
         }
 
-        createNewRun(newRun)
+        createNewRun(newRun).then(() => props.history.push("/"))
     }
 
     const createNewRun = newRun => {
@@ -62,13 +62,15 @@ const RunForm = props => {
 
       return (
         <>
+        <div className="runForm">
         
         <form className={classes.container} noValidate>
       <TextField
           inputRef={time}
         id="time"
-        label="time"
+        label="Time"
         type="text"
+        
         
         className={classes.textField}
         InputLabelProps={{
@@ -76,6 +78,8 @@ const RunForm = props => {
         }}
       />
     </form>
+
+    
         
 
     <form className={classes.container} noValidate>
@@ -95,7 +99,7 @@ const RunForm = props => {
       <TextField
         inputRef={distance}
         id="distance"
-        label="distance"
+        label="Distance"
         type="text"
         
         className={classes.textField}
@@ -107,7 +111,7 @@ const RunForm = props => {
     <form className={classes.container} noValidate>
       <TextField
         id="duration"
-        label="duration"
+        label="Duration"
         type="text"
         inputRef={duration}
         
@@ -117,9 +121,10 @@ const RunForm = props => {
         }}
       />
     </form>
-    <Button  color="info" type="button" onClick={handleCreate}>Create</Button>
-    
-    
+    </div>
+    <div className="createButton">
+    <Button  type="button" onClick={handleCreate}>Create</Button>
+    </div>
     
         </>
       );
