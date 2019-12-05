@@ -24,9 +24,9 @@ const RunList = props => {
 
       return(
           
-        runs.map(run => (
-        <RunListCard key={run.id} run={run} {...props} />
-        ))
+        
+        <RunListCard  runs={runs} {...props} />
+        
         )
 }
 
