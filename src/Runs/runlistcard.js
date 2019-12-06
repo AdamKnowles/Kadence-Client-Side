@@ -6,7 +6,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import moment from 'moment';
+import moment from "moment";
 
 
 const useStyles = makeStyles({
@@ -41,7 +41,7 @@ const RunListCard = props => {
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
-            <TableCell align="right">Time</TableCell>
+            <TableCell align="right">Time(24 hr)</TableCell>
             <TableCell align="right">Duration</TableCell>
             <TableCell align="right">Distance</TableCell>
             <TableCell align="right">Pace</TableCell>
@@ -49,15 +49,16 @@ const RunListCard = props => {
         </TableHead>
         <TableBody>
           {props.runs.map(run => (
+               
 
             <TableRow >
               <TableCell component="th" scope="row">
-                {run.date}
+                {moment(run.date).format('L')}
               </TableCell>
-              <TableCell align="right">{run.time}</TableCell>
-              <TableCell align="right">{run.duration}</TableCell>
-              <TableCell align="right">{run.distance}</TableCell>
-              <TableCell align="right">{run.pace}</TableCell>
+              <TableCell align="right">{run.time[0]}{run.time[1]}:{run.time[3]}{run.time[4]}</TableCell>
+              <TableCell align="right">{run.new_duration}</TableCell>
+              <TableCell align="right">{run.distance} mi</TableCell>
+              <TableCell align="right">{run.pace} /mi</TableCell>
             </TableRow>
 
 
