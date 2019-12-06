@@ -1,13 +1,19 @@
 import React, { useEffect, useState, useRef } from "react";
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import DurationPicker from 'react-duration-picker'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { KeyboardTimePicker } from "@material-ui/pickers";
+import { Button } from 'reactstrap';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import MomentUtils from '@date-io/moment';
+import moment from "moment"
 
 
 
 
 const RunForm = props => {
+
+  const [selectedDate, handleDateChange] = useState(new Date());
+  const [selectedDuration, handleDurationChange] = useState(new Date());
 
  
   const useStyles = makeStyles(theme => ({
@@ -25,20 +31,20 @@ const RunForm = props => {
 
 
 
-    const time = useRef()
+    
     const date = useRef()
     const distance = useRef()
-    const duration = useRef()
+    
 
     const handleCreate = e => {
         e.preventDefault();
 
         const newRun = {
 
-            time: time.current.value,
+            time: moment(selectedDate).format('HH:mm'),
             date: date.current.value,
             distance: distance.current.value,
-            duration: duration.current.value
+            duration: moment(selectedDuration).format('HH:mm:ss')
 
         }
 
@@ -64,20 +70,17 @@ const RunForm = props => {
         <>
         <div className="runForm">
         
-        <form className={classes.container} noValidate>
-      <TextField
-          inputRef={time}
-        id="time"
-        label="Time"
-        type="text"
         
-        
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-    </form>
+<MuiPickersUtilsProvider utils={MomentUtils}>
+<KeyboardTimePicker
+      label="Time"
+      placeholder="08:00"
+      views={["hours", "minutes"]}
+        format="HH:mm"
+      value={selectedDate}
+      onChange={date => handleDateChange(date)}
+    />
+      </MuiPickersUtilsProvider>
 
     
         
@@ -88,6 +91,7 @@ const RunForm = props => {
         id="date"
         label="Date"
         type="date"
+        ampm={false}
         defaultValue="1987-05-24"
         className={classes.textField}
         InputLabelProps={{
@@ -108,19 +112,18 @@ const RunForm = props => {
         }}
       />
     </form>
-    <form className={classes.container} noValidate>
-      <TextField
-        id="duration"
-        label="Duration"
-        type="text"
-        inputRef={duration}
-        
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-    </form>
+    
+
+<MuiPickersUtilsProvider utils={MomentUtils}>
+<KeyboardTimePicker
+      label="Duration"
+      placeholder="08:00 AM"
+      views={["hours", "minutes", "seconds"]}
+        format="HH:mm:ss"
+      value={selectedDuration}
+      onChange={date => handleDurationChange(date)}
+    />
+      </MuiPickersUtilsProvider>
     </div>
     <div className="createButton">
     <Button  type="button" onClick={handleCreate}>Create</Button>

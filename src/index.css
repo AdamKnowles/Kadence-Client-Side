@@ -66,3 +66,7 @@ margin-bottom: 50px;
   display:flex;
   justify-content: center;
 }
+
+.MuiIconButton-root{
+  display: none !important;
+}
