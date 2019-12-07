@@ -20,12 +20,28 @@ const RunList = props => {
           .then(setRuns)  
       }
 
+
+      const deleteRuns = (id) => {
+        fetch(`http://localhost:8000/runs/${id}`, {
+            "method": "DELETE",
+            "headers": {
+              "Accept": "application/json",
+              "Content-Type": "application/json",
+              
+              
+              
+                
+            }
+        })
+            .then(getRuns)
+    }
+
       useEffect(getRuns, [])
 
       return(
           
         
-        <RunListCard  runs={runs} {...props} />
+        <RunListCard  runs={runs}  deleteRuns={deleteRuns} getRuns={getRuns} {...props} />
         
         )
 }
