@@ -10,6 +10,7 @@ import moment from "moment"
 
 
 
+
 const RunForm = props => {
 
   const [selectedDate, handleDateChange] = useState(new Date());
@@ -92,7 +93,7 @@ const RunForm = props => {
         label="Date"
         type="date"
         ampm={false}
-        defaultValue="1987-05-24"
+        defaultValue={new Date()}
         className={classes.textField}
         InputLabelProps={{
           shrink: true,

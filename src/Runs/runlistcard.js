@@ -6,6 +6,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import moment from "moment";
 
 
@@ -45,6 +46,7 @@ const RunListCard = props => {
             <TableCell align="right">Duration</TableCell>
             <TableCell align="right">Distance</TableCell>
             <TableCell align="right">Pace</TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -59,6 +61,7 @@ const RunListCard = props => {
               <TableCell align="right">{run.new_duration}</TableCell>
               <TableCell align="right">{run.distance} mi</TableCell>
               <TableCell align="right">{run.pace} /mi</TableCell>
+              <TableCell align="right"><Button variant="contained" color="primary" size="small" onClick={() => props.deleteRuns(run.id) }>Delete</Button></TableCell>
             </TableRow>
 
 
