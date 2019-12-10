@@ -26,11 +26,6 @@ const RunListCard = props => {
     
     const classes = useStyles();
 
-      
-    
-    
-    
-    
     
     return (
         

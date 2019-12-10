@@ -28,6 +28,14 @@ const ApplicationViews = () => {
             </> )
           }}
         />
+
+      //   <Route
+      //   path="/runDetail/:runDetailId(\d+)"
+      //   render={props => {
+      //     const patientId = +props.match.params.patientProfileId;
+      //     return <PatientProfile  patientProfileId={patientId}  {...props} />;
+      //   }}
+      // />
       }
     </React.Fragment>
   );
