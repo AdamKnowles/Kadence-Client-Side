@@ -18,7 +18,7 @@ import FormControl from '@material-ui/core/FormControl';
 const RunForm = props => {
 
   const [selectedDate, handleDateChange] = useState(new Date());
-  const [selectedDuration, handleDurationChange] = useState(new Date());
+  const [selectedDuration, handleDurationChange] = useState(new Date(1995, 0, 0, 0, 0));
   const[got_after_it, setGotAfterIt] = useState()
 
   const handleChange = event => {
@@ -139,7 +139,7 @@ const RunForm = props => {
 <MuiPickersUtilsProvider utils={MomentUtils}>
 <KeyboardTimePicker
       label="Duration"
-      placeholder="08:00 AM"
+      placeholder="00:00:00"
       views={["hours", "minutes", "seconds"]}
         format="HH:mm:ss"
       value={selectedDuration}

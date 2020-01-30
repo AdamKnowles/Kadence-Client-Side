@@ -39,11 +39,17 @@ display: flex;
 flex-wrap: wrap;
 flex-direction: column;
 align-items: center;
+align-content: space-around;
 margin-bottom: 50px;
 
 
 
 
+
+}
+
+.MuiFormControl-root{
+  margin-bottom: 30px !important;
 }
 
 #root button, 
