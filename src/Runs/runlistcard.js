@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles({
@@ -28,7 +29,7 @@ const RunListCard = props => {
 
     
     return (
-        
+
 
 
 
@@ -49,9 +50,9 @@ const RunListCard = props => {
                
 
             <TableRow >
-              <TableCell component="th" scope="row">
+              <Link to={`/rundetail/${run.id}`}><TableCell component="th" scope="row">
                 {moment(run.date).format('L')}
-              </TableCell>
+              </TableCell></Link>
               <TableCell align="right">{run.time[0]}{run.time[1]}:{run.time[3]}{run.time[4]}</TableCell>
               <TableCell align="right">{run.new_duration}</TableCell>
               <TableCell align="right">{run.distance} mi</TableCell>
