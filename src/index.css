@@ -48,9 +48,10 @@ margin-bottom: 50px;
 
 }
 
-.MuiFormControl-root{
-  margin-bottom: 30px !important;
+#root .MuiFormControl-root{
+  margin-bottom: 30px;
 }
+
 
 #root button, 
 .modal .btn {
