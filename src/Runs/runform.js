@@ -126,7 +126,7 @@ const RunForm = props => {
         id="distance"
         label="Distance"
         type="text"
-        
+        placeholder="ex 4.5, 3.11, 2"
         className={classes.textField}
         InputLabelProps={{
           shrink: true,

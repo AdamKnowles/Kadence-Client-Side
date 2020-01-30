@@ -3,6 +3,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import RunList from "./Runs/runlist";
 import RunForm from "./Runs/runform"
+import RunDetail from "./Runs/rundetail"
 
 const ApplicationViews = () => {
   return (
@@ -28,15 +29,18 @@ const ApplicationViews = () => {
             </> )
           }}
         />
-
-      //   <Route
-      //   path="/runDetail/:runDetailId(\d+)"
-      //   render={props => {
-      //     const patientId = +props.match.params.patientProfileId;
-      //     return <PatientProfile  patientProfileId={patientId}  {...props} />;
-      //   }}
-      // />
-      }
+}
+{
+        <Route
+        path="/runDetail/:runDetailId(\d+)"
+        render={props => {
+          const runId = +props.match.params.runDetailId;
+          return <RunDetail  runDetailId={runId}   {...props} />;
+        }}
+      />
+}
+      
+      
     </React.Fragment>
   );
 };
