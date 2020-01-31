@@ -110,3 +110,7 @@ margin-bottom: 50px;
   line-height:80px;
   
 }
+
+.MuiFormHelperText-root{
+  display: none;
+}

@@ -105,14 +105,11 @@ const RunForm = props => {
       //piecing together final pace
       
       const decimalPace = pace.split(".")
-      const beforeDecimal = `${decimalPace[0]}`
-      const afterdecimal = `${decimalPace[1] * 60}`
-      const digit1 = (''+afterdecimal)[0];
-      const digit2 = (''+afterdecimal)[1];
+      const beforeDecimal = decimalPace[0]
+      const secondsFinal = (((pace % 1) * 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}).substring(0, 2))
       
       
-      
-      const totalPace = `${beforeDecimal}:${digit1}${digit2}`
+      const totalPace = `${beforeDecimal}:${secondsFinal}`
 
     //   const pacing = () => {
       
@@ -121,23 +118,6 @@ const RunForm = props => {
     // }
 
 
-      
-        
-        
-      
-
-      
-
-        
-      
-      
-      
-      
-      
-      
-      
-      
-      
       
       return (
         <>
