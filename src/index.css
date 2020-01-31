@@ -89,5 +89,24 @@ margin-bottom: 50px;
 }
 
 #root a:hover {
-  color:  #069999
+  color:  #069999;
+  /* font-weight: 700; */
+}
+
+.pace {
+  display:flex;
+  justify-content: center;
+  color:black;
+  text-align: center;
+  margin-left: 662px !important;
+  margin-bottom: 40px !important;
+  padding-right: 20px;
+  margin-right: 20px;
+  margin: -.1px;
+  font-size: 1.7em;
+  border: solid black;
+  width: 13%;
+  height: 100%;
+  line-height:80px;
+  
 }
