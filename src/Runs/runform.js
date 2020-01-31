@@ -19,10 +19,13 @@ const RunForm = props => {
 
   const [selectedDate, handleDateChange] = useState(new Date());
   const [selectedDuration, handleDurationChange] = useState(new Date(1995, 0, 0, 0, 0));
-  const[got_after_it, setGotAfterIt] = useState()
+  const[got_after_it, setGotAfterIt] = useState(false)
+  const[popUp, setPopUp] = useState()
+  const[hiddenPace, setHiddenPace] = useState()
 
   const handleChange = event => {
     setGotAfterIt(event.target.value);
+    
   };
 
  
@@ -82,12 +85,67 @@ const RunForm = props => {
           body: JSON.stringify(newRun)
         }).then(res => res.json());
       };
+      
+      // getting total number of seconds in the duration(hours, minutes, seconds)
+      const duration = moment(selectedDuration).format('HH:mm:ss')
+      const stringDuration = duration.toString();
+      const splitString = stringDuration.split(":")
+      const hoursToSeconds = splitString[0] * 60 * 60
+      const minutesToSeconds = splitString[1] * 60
+      const seconds = splitString[2]
+      const totalDuration = parseInt(hoursToSeconds) + parseInt(minutesToSeconds) + parseInt(seconds)
+      
+      
+      //setting state to a variable
+      const totalDistance = popUp
+      
+      //converting original pace to a string
+      const pace = ((totalDuration/totalDistance)/60).toString()
+      
+      //piecing together final pace
+      
+      const decimalPace = pace.split(".")
+      const beforeDecimal = `${decimalPace[0]}`
+      const afterdecimal = `${decimalPace[1] * 60}`
+      const digit1 = (''+afterdecimal)[0];
+      const digit2 = (''+afterdecimal)[1];
+      
+      
+      
+      const totalPace = `${beforeDecimal}:${digit1}${digit2}`
+
+    //   const pacing = () => {
+      
+    //     setHiddenPace(!hiddenPace)
+      
+    // }
 
 
+      
+        
+        
+      
 
+      
+
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       return (
         <>
+        
+      <div className= "pace" hidden={hiddenPace}>{totalPace} /mi</div>
+    
         <div className="runForm">
+
         
         
 <MuiPickersUtilsProvider utils={MomentUtils}>
@@ -128,6 +186,7 @@ const RunForm = props => {
         type="text"
         placeholder="ex 4.5, 3.11, 2"
         className={classes.textField}
+        onChange={e => setPopUp(e.target.value)}
         InputLabelProps={{
           shrink: true,
         }}
@@ -159,10 +218,15 @@ const RunForm = props => {
           <MenuItem value={false}>No I died</MenuItem>
         </Select>
         </FormControl>
+        {/* <Button size="sm"  type="button" onClick={pacing}> Show Pace</Button> */}
+        
 
     </div>
+     
+    
     <div className="createButton">
     <Button  type="button" onClick={handleCreate}>Create</Button>
+    
     </div>
     
         </>

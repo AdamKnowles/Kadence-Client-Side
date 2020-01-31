@@ -45,14 +45,14 @@ const RunListCard = props => {
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody >
           {props.runs.map(run => (
                
 
-            <TableRow >
-              <Link to={`/rundetail/${run.id}`}><TableCell component="th" scope="row">
-                {moment(run.date).format('L')}
-              </TableCell></Link>
+            <TableRow className="cell">
+              <TableCell component="th" scope="row"><Link to={`/rundetail/${run.id}`}>
+                {moment(run.date).format('L')}</Link>
+              </TableCell>
               <TableCell align="right">{run.time[0]}{run.time[1]}:{run.time[3]}{run.time[4]}</TableCell>
               <TableCell align="right">{run.new_duration}</TableCell>
               <TableCell align="right">{run.distance} mi</TableCell>
