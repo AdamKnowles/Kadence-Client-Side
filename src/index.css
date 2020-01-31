@@ -78,3 +78,16 @@ margin-bottom: 50px;
 .MuiIconButton-root{
   display: none !important;
 }
+
+.cell:hover {
+  background-color: #f7f7f9;
+}
+
+#root a {
+  color:black;
+
+}
+
+#root a:hover {
+  color:  #069999
+}
