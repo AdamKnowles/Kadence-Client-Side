@@ -20,7 +20,7 @@ const RunForm = props => {
   const [selectedDate, handleDateChange] = useState(new Date());
   const [selectedDuration, handleDurationChange] = useState(new Date(1995, 0, 0, 0, 0));
   const[got_after_it, setGotAfterIt] = useState(false)
-  const[popUp, setPopUp] = useState()
+  const[popUp, setPopUp] = useState(1)
   const[hiddenPace, setHiddenPace] = useState()
 
   const handleChange = event => {
@@ -30,10 +30,7 @@ const RunForm = props => {
 
  
   const useStyles = makeStyles(theme => ({
-    // container: {
-    //   display: 'flex',
-    //   flexWrap: 'wrap',
-    // },
+    
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
@@ -55,6 +52,7 @@ const RunForm = props => {
     
     const date = useRef()
     const distance = useRef()
+    const title = useRef()
     
 
     const handleCreate = e => {
@@ -64,6 +62,7 @@ const RunForm = props => {
 
             time: moment(selectedDate).format('HH:mm'),
             date: date.current.value,
+            title: title.current.value,
             distance: distance.current.value,
             duration: moment(selectedDuration).format('HH:mm:ss'),
             got_after_it: got_after_it
@@ -112,6 +111,7 @@ const RunForm = props => {
       const totalPace = `${beforeDecimal}:${secondsFinal}`
 
     //   const pacing = () => {
+
       
     //     setHiddenPace(!hiddenPace)
       
@@ -157,13 +157,29 @@ const RunForm = props => {
       />
     </form>
     </div>
-    <div>
+<div>
+    <form className={classes.container} noValidate>
+      <TextField
+        inputRef={title}
+        id="title"
+        label="title"
+        type="text"
+        placeholder="Enter a Title"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+    </form>
+    </div>
+    <div className="d-flex flex ml-4">
     <form className={classes.container} noValidate>
       <TextField
         inputRef={distance}
         id="distance"
         label="Distance"
         type="text"
+        value={popUp}
         placeholder="ex 4.5, 3.11, 2"
         className={classes.textField}
         onChange={e => setPopUp(e.target.value)}
@@ -171,7 +187,8 @@ const RunForm = props => {
           shrink: true,
         }}
       />
-    </form>
+    </form> 
+    <p className="mt-4">mi</p>
     </div>
     
 

@@ -114,3 +114,10 @@ margin-bottom: 50px;
 .MuiFormHelperText-root{
   display: none;
 }
+
+.runDetail {
+
+display: flex;
+flex-direction: column;
+align-items: center;
+}

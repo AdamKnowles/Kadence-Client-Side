@@ -38,10 +38,10 @@ const RunListCard = props => {
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
-            <TableCell align="right">Time(24 hr)</TableCell>
-            <TableCell align="right">Duration</TableCell>
+            <TableCell>Title</TableCell>
             <TableCell align="right">Distance</TableCell>
-            <TableCell align="right">Pace</TableCell>
+            <TableCell align="right">Duration</TableCell>
+            {/* <TableCell align="right">Pace</TableCell> */}
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
@@ -50,13 +50,16 @@ const RunListCard = props => {
                
 
             <TableRow className="cell">
-              <TableCell component="th" scope="row"><Link to={`/rundetail/${run.id}`}>
-                {moment(run.date).format('L')}</Link>
+              <TableCell component="th" scope="row">
+                {moment(run.date).format('L')}
               </TableCell>
-              <TableCell align="right">{run.time[0]}{run.time[1]}:{run.time[3]}{run.time[4]}</TableCell>
-              <TableCell align="right">{run.new_duration}</TableCell>
+              <TableCell component="th" scope="row"><Link to={`/rundetail/${run.id}`}>
+                {run.title}</Link>
+              </TableCell>
+              {/* <TableCell align="right">{run.time[0]}{run.time[1]}:{run.time[3]}{run.time[4]}</TableCell> */}
               <TableCell align="right">{run.distance} mi</TableCell>
-              <TableCell align="right">{run.pace} /mi</TableCell>
+              <TableCell align="right">{run.new_duration}</TableCell>
+              {/* <TableCell align="right">{run.pace} /mi</TableCell> */}
               <TableCell align="right"><Button variant="contained" color="primary" size="small" onClick={() => props.deleteRuns(run.id) }>Delete</Button></TableCell>
             </TableRow>
 
