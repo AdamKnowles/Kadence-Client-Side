@@ -6,7 +6,7 @@
 .pnp.js
 /package-lock.json
 kadence/package-lock.json
-
+/token.js
 # testing
 /coverage
 
@@ -19,6 +19,7 @@ kadence/package-lock.json
 .env.development.local
 .env.test.local
 .env.production.local
+
 
 npm-debug.log*
 yarn-debug.log*

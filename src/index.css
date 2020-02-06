@@ -1,17 +1,27 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  monospace;
 }
 
+.marker-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+}
+
+.marker-btn img {
+  width: 20px;
+  height: 20px;
+}
 
 .navbar {
   border-bottom: solid 1px #d7d7d7;
@@ -121,3 +131,23 @@ display: flex;
 flex-direction: column;
 align-items: center;
 }
+
+.mapboxgl-popup-content {
+  position: relative;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  padding: 10px 40px 15px !important;
+  pointer-events: auto;
+}
+
+.mapboxgl-popup-close-button{
+  background: none !important;
+  border: none !important;
+  color: black !important
+}
+
+
+
+
+
