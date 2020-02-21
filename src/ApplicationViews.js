@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import RunList from "./Runs/runlist";
 import RunForm from "./Runs/runform"
 import RunDetail from "./Runs/rundetail"
+import MapBox from "./Runs/mapbox"
 
 const ApplicationViews = () => {
   return (
@@ -15,6 +16,17 @@ const ApplicationViews = () => {
           render={props => {
             return( <>
             <RunList  {...props}/>
+            </> )
+          }}
+        />
+      }
+      {
+        <Route
+          exact
+          path="/mapbox"
+          render={props => {
+            return( <>
+            <MapBox  {...props}/>
             </> )
           }}
         />

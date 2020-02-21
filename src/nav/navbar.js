@@ -12,6 +12,9 @@ const NavBar = props => {
         <li className="nav-item">
             <Link className="nav-link" to="/runform">Run Form</Link>
         </li>
+        <li className="nav-item">
+            <Link className="nav-link" to="/mapbox">Map</Link>
+        </li>
       </ul>
     </nav>
   );
