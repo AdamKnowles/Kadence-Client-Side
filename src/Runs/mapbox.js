@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import ReactMapGl, {Marker, Popup} from "react-map-gl"
-import TOKEN from "../../token"
+import TOKEN from "../token"
 
 
 
@@ -33,7 +33,7 @@ const MapBox = () => {
 
           useEffect(getParks, [])
 
-    
+         
       return(
           
     <div>
@@ -52,7 +52,7 @@ const MapBox = () => {
                 e.preventDefault()
                 setSelectedPark(item)
             }}>
-                 <img src="skateboard.jpg"></img>
+                 <img src="runner.jpeg"></img>
             </button>
           </Marker>
       ))}

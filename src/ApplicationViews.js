@@ -26,7 +26,7 @@ const ApplicationViews = () => {
           path="/mapbox"
           render={props => {
             return( <>
-            <MapBox {...props}/>
+            <MapBox  {...props}/>
             </> )
           }}
         />
